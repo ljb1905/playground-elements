@@ -262,7 +262,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
         /* eslint-enable @typescript-eslint/no-floating-promises */
     }
     render() {
-        return html`
+        return html `
       <slot @slotchange=${this._slotChange}></slot>
       <iframe
         src=${this._serviceWorkerProxyIframeUrl}
@@ -582,7 +582,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
         /* eslint-enable @typescript-eslint/no-floating-promises */
     }
 };
-PlaygroundProject.styles = css`
+PlaygroundProject.styles = css `
     iframe {
       display: none;
     }
