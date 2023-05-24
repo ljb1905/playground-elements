@@ -397,7 +397,7 @@ __decorate([
     property({ type: Boolean, attribute: 'no-completions' })
 ], PlaygroundIde.prototype, "noCompletions", void 0);
 __decorate([
-    property({ attribute: 'auto-refresh' })
+    property({ type: Boolean, attribute: 'auto-refresh' })
 ], PlaygroundIde.prototype, "autoRefresh", void 0);
 __decorate([
     query('playground-project')
