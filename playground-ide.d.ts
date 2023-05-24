@@ -132,7 +132,7 @@ export declare class PlaygroundIde extends LitElement {
      * If true, will disable code completions in the code-editor.
      */
     noCompletions: boolean;
-    autoRefresh: boolean;
+    autoRefresh: boolean | string;
     /**
      * Indicates whether the user has modified, added, or removed any project
      * files. Resets whenever a new project is loaded.

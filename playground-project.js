@@ -262,7 +262,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
         /* eslint-enable @typescript-eslint/no-floating-promises */
     }
     render() {
-        return html`
+        return html `
       <slot @slotchange=${this._slotChange}></slot>
       <iframe
         src=${this._serviceWorkerProxyIframeUrl}
@@ -424,6 +424,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
         var _a, _b;
         if (!this.autoRefresh && !forceSave)
             return;
+        //
         if (this.autoRefresh == 'false' && !forceSave)
             return;
         (_a = this._build) === null || _a === void 0 ? void 0 : _a.cancel();
@@ -584,7 +585,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
         /* eslint-enable @typescript-eslint/no-floating-promises */
     }
 };
-PlaygroundProject.styles = css`
+PlaygroundProject.styles = css `
     iframe {
       display: none;
     }
@@ -602,7 +603,7 @@ __decorate([
     property({ attribute: 'sandbox-base-url' })
 ], PlaygroundProject.prototype, "sandboxBaseUrl", void 0);
 __decorate([
-    property({ type: Boolean, attribute: 'auto-refresh' })
+    property({ attribute: 'auto-refresh' })
 ], PlaygroundProject.prototype, "autoRefresh", void 0);
 __decorate([
     property({ attribute: 'sandbox-scope' })

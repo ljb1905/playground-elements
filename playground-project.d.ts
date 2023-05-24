@@ -60,7 +60,7 @@ export declare class PlaygroundProject extends LitElement {
      * "/node_modules/playground-elements/").
      */
     sandboxBaseUrl: string;
-    autoRefresh: boolean;
+    autoRefresh: boolean | string;
     /**
      * The service worker scope to register on
      */
