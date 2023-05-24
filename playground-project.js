@@ -262,7 +262,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
         /* eslint-enable @typescript-eslint/no-floating-promises */
     }
     render() {
-        return html `
+        return html`
       <slot @slotchange=${this._slotChange}></slot>
       <iframe
         src=${this._serviceWorkerProxyIframeUrl}
@@ -422,7 +422,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
      */
     async save(forceSave = false) {
         var _a, _b;
-        if (!this.autoRefresh && !forceSave)
+        if ((!this.autoRefresh || this.autoRefresh == 'false') && !forceSave)
             return;
         (_a = this._build) === null || _a === void 0 ? void 0 : _a.cancel();
         const build = new PlaygroundBuild(() => {
@@ -582,7 +582,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
         /* eslint-enable @typescript-eslint/no-floating-promises */
     }
 };
-PlaygroundProject.styles = css `
+PlaygroundProject.styles = css`
     iframe {
       display: none;
     }
