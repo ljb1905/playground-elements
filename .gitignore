@@ -26,6 +26,12 @@
 /web-*
 /CHANGELOG.md
 
+/.DS_Store
+/.eslintignore
+/.eslintrc.json
+/.prettierignore
+/.prettierrc.json
+
 # /internal/
 # /playground-service-worker.*
 # /playground-service-worker-proxy.*
