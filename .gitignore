@@ -1,31 +1,50 @@
 /packages/*/node_modules
 /node_modules
-/internal/
-/service-worker/
-/shared/
-/configurator/*.js
-!/configurator/playground-service-worker.js
-/configurator/*.d.ts
-/configurator/*.d.ts.map
-/configurator/deploy/
-/typescript-worker/
-/playground-typescript-worker.js
-/index.js
-/index.d.ts
-/index.d.ts.map
-/playground-*.js
-/playground-*.d.ts
-/playground-*.d.ts.map
-/test/
-/_codemirror/
-/themes/
-/src/themes/
-/src/_codemirror/codemirror-styles.ts
-/src/configurator/themes.ts
+/service-worker
+/typescript-worker
+/test
+/src/
+
 .tsbuildinfo
-/playground-service-worker.*
-/playground-service-worker-proxy.*
-/src/playground-styles.ts
 /*.tgz
 /.wireit
 /.eslintcache
+/.github/
+/.vscode/
+/configurator/
+/demo/
+/examples/
+/scripts/
+
+/playground-service-worker-proxy.js
+/playground-service-worker-proxy.d.ts
+/playground-service-worker-proxy.d.ts.map
+/playground-service-worker-proxy.js
+/playwright.config.ts
+/rollup.*
+/tsconfig.json
+/web-*
+/CHANGELOG.md
+
+# /internal/
+# /playground-service-worker.*
+# /playground-service-worker-proxy.*
+# /shared/
+# /configurator/*.js
+# !/configurator/playground-service-worker.js
+# /configurator/*.d.ts
+# /configurator/*.d.ts.map
+# /configurator/deploy/
+# /playground-*.js
+# /playground-*.d.ts
+# /playground-*.d.ts.map
+# /_codemirror/
+# /themes/
+# /index.js
+# /index.d.ts
+# /index.d.ts.map
+# /playground-typescript-worker.js
+# /src/themes/
+# /src/_codemirror/codemirror-styles.ts
+# /src/configurator/themes.ts
+# /src/playground-styles.ts

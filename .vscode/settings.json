@@ -1,8 +1,0 @@
-{
-  "files.exclude": {
-    "**/bundle": true
-  },
-  "editor.formatOnSave": true,
-  "files.insertFinalNewline": true,
-  "typescript.tsdk": "node_modules/typescript/lib"
-}
