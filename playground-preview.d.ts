@@ -42,6 +42,7 @@ export declare class PlaygroundPreview extends PlaygroundConnectedElement {
      * An error to display instead of the iframe when something has gone wrong.
      */
     private _error?;
+    forceSave(): void;
     constructor();
     update(changedProperties: PropertyValues): void;
     private get _indexUrl();

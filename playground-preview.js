@@ -88,6 +88,11 @@ let PlaygroundPreview = class PlaygroundPreview extends PlaygroundConnectedEleme
         </p> `;
         }
     }
+    forceSave() {
+        var _a;
+        /* eslint-disable @typescript-eslint/no-floating-promises */
+        (_a = this._project) === null || _a === void 0 ? void 0 : _a.saveDebounced(true);
+    }
     update(changedProperties) {
         if (changedProperties.has('_project')) {
             const oldProject = changedProperties.get('_project');
@@ -122,7 +127,7 @@ let PlaygroundPreview = class PlaygroundPreview extends PlaygroundConnectedEleme
           aria-label="Reload preview"
           part="preview-reload-button"
           ?disabled=${!this._indexUrl}
-          @click=${this.reload}
+          @click=${this.forceSave}
         >
           <!-- Source: https://material.io/resources/icons/?icon=refresh&style=baseline -->
           <svg

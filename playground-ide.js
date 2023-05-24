@@ -200,7 +200,7 @@ let PlaygroundIde = class PlaygroundIde extends LitElement {
         <slot></slot>
       </playground-project>
 
-      <button @click=${this.forceSave}>save</button>
+      <!-- <button @click=${this.forceSave}>save</button> -->
 
       <div id="lhs">
         <playground-tab-bar
