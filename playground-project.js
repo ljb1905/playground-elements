@@ -59,7 +59,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
          * "/node_modules/playground-elements/").
          */
         this.sandboxBaseUrl = `https://unpkg.com/playground-elements@${npmVersion}/`;
-        this.autoRefresh = true;
+        this.autoRefresh = false;
         /**
          * The service worker scope to register on
          */
@@ -262,7 +262,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
         /* eslint-enable @typescript-eslint/no-floating-promises */
     }
     render() {
-        return html `
+        return html`
       <slot @slotchange=${this._slotChange}></slot>
       <iframe
         src=${this._serviceWorkerProxyIframeUrl}
@@ -582,7 +582,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
         /* eslint-enable @typescript-eslint/no-floating-promises */
     }
 };
-PlaygroundProject.styles = css `
+PlaygroundProject.styles = css`
     iframe {
       display: none;
     }
