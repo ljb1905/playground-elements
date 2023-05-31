@@ -1,36 +1,36 @@
-/packages/*/node_modules
 /node_modules
-/service-worker
-/typescript-worker
-/test
-/src/
+# /packages/*/node_modules
+# /service-worker
+# /typescript-worker
+# /test
+# /src/
 
-.tsbuildinfo
-/*.tgz
-/.wireit
-/.eslintcache
-/.github/
-/.vscode/
-/configurator/
-/demo/
-/examples/
-/scripts/
+# .tsbuildinfo
+# /*.tgz
+# /.wireit
+# /.eslintcache
+# /.github/
+# /.vscode/
+# /configurator/
+# /demo/
+# /examples/
+# /scripts/
 
-/playground-service-worker-proxy.js
-/playground-service-worker-proxy.d.ts
-/playground-service-worker-proxy.d.ts.map
-/playground-service-worker-proxy.js
-/playwright.config.ts
-/rollup.*
-/tsconfig.json
-/web-*
-/CHANGELOG.md
+# /playground-service-worker-proxy.js
+# /playground-service-worker-proxy.d.ts
+# /playground-service-worker-proxy.d.ts.map
+# /playground-service-worker-proxy.js
+# /playwright.config.ts
+# /rollup.*
+# /tsconfig.json
+# /web-*
+# /CHANGELOG.md
 
-/.DS_Store
-/.eslintignore
-/.eslintrc.json
-/.prettierignore
-/.prettierrc.json
+# /.DS_Store
+# /.eslintignore
+# /.eslintrc.json
+# /.prettierignore
+# /.prettierrc.json
 
 # /internal/
 # /playground-service-worker.*

@@ -1,0 +1,1 @@
+{"version":3,"file":"typescript-builder.d.ts","sourceRoot":"","sources":["../src/typescript-worker/typescript-builder.ts"],"names":[],"mappings":"AAAA;;;;GAIG;AAEH,OAAO,EAAC,WAAW,EAAa,MAAM,yBAAyB,CAAC;AAIhE,OAAO,EAAC,aAAa,EAAC,MAAM,qBAAqB,CAAC;AAElD,wBAAuB,sBAAsB,CAC3C,aAAa,EAAE,aAAa,EAC5B,OAAO,EAAE,aAAa,CAAC,WAAW,CAAC,GAAG,QAAQ,CAAC,WAAW,CAAC,GAC1D,aAAa,CAAC,WAAW,CAAC,CAqH5B"}
