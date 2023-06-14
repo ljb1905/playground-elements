@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-import {LitElement, html, css, nothing} from 'lit';
-import {customElement, state, query} from 'lit/decorators.js';
+import { LitElement, html, css, nothing } from 'lit';
+import { customElement, state, query } from 'lit/decorators.js';
 
 import '../playground-ide.js';
-import {PlaygroundIde} from '../playground-ide.js';
+import { PlaygroundIde } from '../playground-ide.js';
 import '../playground-code-editor.js';
 import {
   Knob,
@@ -22,11 +22,11 @@ import {
   knobsById,
   knobsBySection,
 } from './knobs.js';
-import {themeStyles} from './themes.js';
+import { themeStyles } from './themes.js';
 import '@material/mwc-dialog';
 import '@material/mwc-button';
 import './playground-theme-detector.js';
-import {tokens} from './highlight-tokens.js';
+import { tokens } from './highlight-tokens.js';
 
 /**
  * A configurator for the playground-* elements.
@@ -310,11 +310,11 @@ export class PlaygroundConfigurator extends LitElement {
         @closed=${this._closeThemeDetector}
       >
         ${this._themeDetectorOpen
-          ? html`<playground-theme-detector
+        ? html`<playground-theme-detector
               @apply=${this._onThemeDetectorApply}
               @cancel=${this._closeThemeDetector}
             ></playground-theme-detector>`
-          : nothing}
+        : nothing}
       </mwc-dialog>
 
       <div id="lhs">${this.knobs}</div>
@@ -387,7 +387,7 @@ export class PlaygroundConfigurator extends LitElement {
       return '';
     }
     return `<import rel="stylesheet"
-        src="/node_modules/playground-elements/themes/${theme}.css">\n`;
+        src="/node_modules/kt-playground-elements/themes/${theme}.css">\n`;
   }
 
   private get htmlTextAttributes() {
@@ -430,7 +430,7 @@ export class PlaygroundConfigurator extends LitElement {
       let line = `${knob.cssProperty}: ${
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         knob.formatCss ? (knob as any).formatCss(value) : value
-      };`;
+        };`;
       if (value === knob.default) {
         continue;
       } else {
@@ -481,17 +481,17 @@ ${props.join('\n')}
     return html`
       <select
         id=${knob.id}
-        @input=${(event: Event & {target: HTMLSelectElement}) => {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          this.setValue(knob.id, event.target.value as any);
-        }}
+        @input=${(event: Event & { target: HTMLSelectElement }) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        this.setValue(knob.id, event.target.value as any);
+      }}
       >
         ${(knob.options as ReadonlyArray<string>).map(
-          (option) =>
-            html`<option value=${option} ?selected=${option === value}>
+        (option) =>
+          html`<option value=${option} ?selected=${option === value}>
               ${option}
             </option>`
-        )}
+      )}
       </select>
     `;
   }
@@ -506,9 +506,9 @@ ${props.join('\n')}
           min=${knob.min}
           max=${knob.max}
           value=${value}
-          @input=${(event: Event & {target: HTMLInputElement}) => {
-            this.setValue(knob.id, Number(event.target.value));
-          }}
+          @input=${(event: Event & { target: HTMLInputElement }) => {
+        this.setValue(knob.id, Number(event.target.value));
+      }}
         />
         <span class="sliderValue"
           >${knob.formatCss ? knob.formatCss(value) : value}</span
@@ -527,10 +527,10 @@ ${props.join('\n')}
                 id=${knob.id + '-unset'}
                 type="checkbox"
                 ?checked=${value === ''}
-                @input=${(event: Event & {target: HTMLInputElement}) => {
-                  value = event.target.checked ? '' : '#ffffff';
-                  this.setValue(knob.id, value);
-                }}
+                @input=${(event: Event & { target: HTMLInputElement }) => {
+            value = event.target.checked ? '' : '#ffffff';
+            this.setValue(knob.id, value);
+          }}
               />
               <label for=${knob.id + '-unset'}> ${knob.unsetLabel}</label>
             </div>
@@ -541,9 +541,9 @@ ${props.join('\n')}
         id=${knob.id}
         type="color"
         .value=${value === '' ? '#ffffff' : String(value)}
-        @input=${(event: Event & {target: HTMLInputElement}) => {
-          this.setValue(knob.id, event.target.value);
-        }}
+        @input=${(event: Event & { target: HTMLInputElement }) => {
+        this.setValue(knob.id, event.target.value);
+      }}
       />
     `;
   }
@@ -555,9 +555,9 @@ ${props.join('\n')}
         id=${knob.id}
         type="checkbox"
         ?checked=${value}
-        @change=${(event: Event & {target: HTMLInputElement}) => {
-          this.setValue(knob.id, event.target.checked);
-        }}
+        @change=${(event: Event & { target: HTMLInputElement }) => {
+        this.setValue(knob.id, event.target.checked);
+      }}
       />
     `;
   }
@@ -571,7 +571,7 @@ ${props.join('\n')}
   }
 
   private async _onThemeDetectorApply(
-    event: CustomEvent<{properties: Map<string, string | null>}>
+    event: CustomEvent<{ properties: Map<string, string | null> }>
   ) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const values = new Map<KnobId, any>();

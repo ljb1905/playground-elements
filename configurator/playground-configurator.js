@@ -221,7 +221,7 @@ let PlaygroundConfigurator = class PlaygroundConfigurator extends LitElement {
             return '';
         }
         return `<import rel="stylesheet"
-        src="/node_modules/playground-elements/themes/${theme}.css">\n`;
+        src="/node_modules/kt-playground-elements/themes/${theme}.css">\n`;
     }
     get htmlTextAttributes() {
         const attributes = [];
