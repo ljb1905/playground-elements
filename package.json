@@ -1,9 +1,12 @@
 {
-  "name": "playground-elements",
-  "version": "0.17.1",
+  "name": "kt-playground-elements",
+  "version": "0.0.1",
   "description": "Serverless coding environments for the web",
   "homepage": "https://github.com/google/playground-elements#readme",
-  "repository": "github:google/playground-elements",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ljb1905/playground-elements.git"
+  },
   "author": "Google LLC",
   "license": "BSD-3-Clause",
   "type": "module",
@@ -310,5 +313,16 @@
     "lit": "^2.0.0",
     "tslib": "^2.0.3",
     "vscode-languageserver-protocol": "^3.17.2"
-  }
+  },
+  "types": "./playground-ide.d.ts",
+  "bugs": {
+    "url": "https://github.com/google/playground-elements/issues"
+  },
+  "directories": {
+    "example": "examples",
+    "test": "test"
+  },
+  "keywords": [
+    "playground"
+  ]
 }
