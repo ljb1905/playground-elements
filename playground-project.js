@@ -660,13 +660,17 @@ const expandProjectConfig = async (config, baseUrl, alreadyFetchedFilenames = ne
         alreadyFetchedFilenames.add(filename);
         if (info.content === undefined) {
             filePromises.push((async () => {
-                var _a, _b;
+                var _a;
                 const resp = await fetch(new URL(filename, baseUrl).href);
+                let contentType = resp.headers.get('Content-Type');
+                if (filename && filename.split('.').reverse()[0] === 'ts') {
+                    contentType = 'video/mp2t';
+                }
                 return {
                     ...info,
                     name: filename,
                     content: await resp.text(),
-                    contentType: (_b = (_a = resp.headers.get('Content-Type')) === null || _a === void 0 ? void 0 : _a.toLowerCase()) !== null && _b !== void 0 ? _b : 'text/plain',
+                    contentType: (_a = contentType === null || contentType === void 0 ? void 0 : contentType.toLowerCase()) !== null && _a !== void 0 ? _a : 'text/plain',
                 };
             })());
         }
