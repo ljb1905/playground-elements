@@ -1,12 +1,7 @@
 {
   "name": "kt-playground-elements",
-  "version": "0.18.0",
+  "version": "0.18.1",
   "description": "Serverless coding environments for the web",
-  "homepage": "https://github.com/google/playground-elements#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ljb1905/playground-elements.git"
-  },
   "author": "Google LLC",
   "license": "BSD-3-Clause",
   "type": "module",
