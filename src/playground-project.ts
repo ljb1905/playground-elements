@@ -33,7 +33,7 @@ import {
   populateCompletionInfoWithDetailGetters,
   sortCompletionItems,
 } from './shared/completion-utils.js';
-import { npmVersion, serviceWorkerHash } from './shared/version.js';
+import { serviceWorkerHash } from './shared/version.js';
 import { Deferred } from './shared/deferred.js';
 import { PlaygroundBuild } from './internal/build.js';
 
@@ -173,7 +173,7 @@ export class PlaygroundProject extends LitElement {
    * "/node_modules/playground-elements/").
    */
   @property({ attribute: 'sandbox-base-url' })
-  sandboxBaseUrl = `https://unpkg.com/playground-elements@${npmVersion}/`;
+  sandboxBaseUrl = `https://unpkg.com/playground-elements@0.18.0/`;
 
   @property({ attribute: 'auto-refresh' })
   autoRefresh: boolean | string = false;

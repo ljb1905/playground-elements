@@ -13,7 +13,7 @@ import './playground-file-editor.js';
 import './playground-preview.js';
 import { PlaygroundProject } from './playground-project.js';
 import { ProjectManifest } from './shared/worker-api.js';
-import { npmVersion, serviceWorkerHash } from './shared/version.js';
+import { serviceWorkerHash } from './shared/version.js';
 
 /**
  * A multi-file code editor component with live preview that works without a
@@ -208,7 +208,7 @@ export class PlaygroundIde extends LitElement {
    * "/node_modules/playground-elements/").
    */
   @property({ attribute: 'sandbox-base-url' })
-  sandboxBaseUrl = `https://unpkg.com/playground-elements@${npmVersion}/`;
+  sandboxBaseUrl = `https://unpkg.com/playground-elements@0.18.0/`;
 
   /**
    * The service worker scope to register on

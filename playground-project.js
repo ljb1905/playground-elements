@@ -10,7 +10,7 @@ import { wrap, proxy } from 'comlink';
 import { CONFIGURE_PROXY, CONNECT_PROJECT_TO_SW, ACKNOWLEDGE_SW_CONNECTION, UPDATE_SERVICE_WORKER, } from './shared/worker-api.js';
 import { getRandomString, endWithSlash, forceSkypackRawMode, } from './shared/util.js';
 import { completionEntriesAsEditorCompletions, populateCompletionInfoWithDetailGetters, sortCompletionItems, } from './shared/completion-utils.js';
-import { npmVersion, serviceWorkerHash } from './shared/version.js';
+import { serviceWorkerHash } from './shared/version.js';
 import { Deferred } from './shared/deferred.js';
 import { PlaygroundBuild } from './internal/build.js';
 // Each <playground-project> has a unique session ID used to scope requests from
@@ -58,7 +58,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
          * on the same origin (typically something like
          * "/node_modules/playground-elements/").
          */
-        this.sandboxBaseUrl = `https://unpkg.com/playground-elements@${npmVersion}/`;
+        this.sandboxBaseUrl = `https://unpkg.com/playground-elements@0.18.0/`;
         this.autoRefresh = false;
         /**
          * The service worker scope to register on

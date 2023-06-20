@@ -10,7 +10,7 @@ import './playground-project.js';
 import './playground-tab-bar.js';
 import './playground-file-editor.js';
 import './playground-preview.js';
-import { npmVersion, serviceWorkerHash } from './shared/version.js';
+import { serviceWorkerHash } from './shared/version.js';
 /**
  * A multi-file code editor component with live preview that works without a
  * server.
@@ -73,7 +73,7 @@ let PlaygroundIde = class PlaygroundIde extends LitElement {
          * on the same origin (typically something like
          * "/node_modules/playground-elements/").
          */
-        this.sandboxBaseUrl = `https://unpkg.com/playground-elements@${npmVersion}/`;
+        this.sandboxBaseUrl = `https://unpkg.com/playground-elements@0.18.0/`;
         /**
          * The service worker scope to register on
          */
