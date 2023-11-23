@@ -8,6 +8,7 @@ import './playground-project.js';
 import './playground-tab-bar.js';
 import './playground-file-editor.js';
 import './playground-preview.js';
+import './code-language-switch.js';
 import { ProjectManifest } from './shared/worker-api.js';
 /**
  * A multi-file code editor component with live preview that works without a
@@ -133,6 +134,7 @@ export declare class PlaygroundIde extends LitElement {
      */
     noCompletions: boolean;
     autoRefresh: boolean | string;
+    codeSwitchHanler?: VoidFunction;
     /**
      * Indicates whether the user has modified, added, or removed any project
      * files. Resets whenever a new project is loaded.

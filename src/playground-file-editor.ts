@@ -39,7 +39,7 @@ export class PlaygroundFileEditor extends PlaygroundConnectedElement {
       height: 100%;
       border-radius: inherit;
       border-top-left-radius: 0;
-      border-top-right-radius: 0;
+      border-top-right-radius: 6px;
     }
   `;
 

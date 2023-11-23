@@ -43,6 +43,9 @@ export declare class PlaygroundPreview extends PlaygroundConnectedElement {
      */
     private _error?;
     forceSave(): void;
+    localStorageSave(): void;
+    download(): void;
+    reset(): void;
     constructor();
     update(changedProperties: PropertyValues): void;
     private get _indexUrl();

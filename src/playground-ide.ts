@@ -11,6 +11,7 @@ import './playground-project.js';
 import './playground-tab-bar.js';
 import './playground-file-editor.js';
 import './playground-preview.js';
+import './code-language-switch.js';
 import { PlaygroundProject } from './playground-project.js';
 import { ProjectManifest } from './shared/worker-api.js';
 import { serviceWorkerHash } from './shared/version.js';
@@ -83,6 +84,14 @@ export class PlaygroundIde extends LitElement {
       border-right: var(--playground-border, solid 1px #ddd);
     }
 
+    #toggleBtnArea {
+      height:40px;
+      display: flex;
+      align-items: center;
+      background: var(--playground-tab-bar-background, #515966);
+      padding-right: 6px;
+    }
+
     playground-tab-bar {
       flex-shrink: 0;
     }
@@ -103,8 +112,9 @@ export class PlaygroundIde extends LitElement {
       height: 100%;
       width: 100%;
       border-radius: inherit;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 6px;
     }
 
     slot {
@@ -274,6 +284,9 @@ export class PlaygroundIde extends LitElement {
   @property({ attribute: 'auto-refresh' })
   autoRefresh: boolean | string = false;
 
+  @property({ type:Function, attribute: 'code-switch-handler' })
+  codeSwitchHanler?: VoidFunction;
+
   /**
    * Indicates whether the user has modified, added, or removed any project
    * files. Resets whenever a new project is loaded.
@@ -315,13 +328,20 @@ export class PlaygroundIde extends LitElement {
       <!-- <button @click=${this.forceSave}>save</button> -->
 
       <div id="lhs">
-        <playground-tab-bar
-          part="tab-bar"
-          .project=${projectId}
-          .editor=${editorId}
-          .editableFileSystem=${this.editableFileSystem}
-        >
-        </playground-tab-bar>
+        <div style="display: flex;">
+          <div style="flex: 1;">
+            <playground-tab-bar
+              part="tab-bar"
+              .project=${projectId}
+              .editor=${editorId}
+              .editableFileSystem=${this.editableFileSystem}
+            >
+            </playground-tab-bar>
+          </div>
+          <div id="toggleBtnArea">  
+            <code-language-switch code-switch-handler=${this.codeSwitchHanler}/>
+          </div>
+        </div>
 
         <playground-file-editor
           id=${editorId}

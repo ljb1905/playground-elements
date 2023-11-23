@@ -233,7 +233,7 @@ PlaygroundFileSystemControls.styles = css `
     mwc-menu-surface {
       --mdc-theme-primary: var(
         --playground-floating-controls-color,
-        var(--playground-highlight-color, #6200ee)
+        var(--playground-highlight-color, #ffa200)
       );
     }
 

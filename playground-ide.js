@@ -10,6 +10,7 @@ import './playground-project.js';
 import './playground-tab-bar.js';
 import './playground-file-editor.js';
 import './playground-preview.js';
+import './code-language-switch.js';
 import { serviceWorkerHash } from './shared/version.js';
 /**
  * A multi-file code editor component with live preview that works without a
@@ -203,13 +204,20 @@ let PlaygroundIde = class PlaygroundIde extends LitElement {
       <!-- <button @click=${this.forceSave}>save</button> -->
 
       <div id="lhs">
-        <playground-tab-bar
-          part="tab-bar"
-          .project=${projectId}
-          .editor=${editorId}
-          .editableFileSystem=${this.editableFileSystem}
-        >
-        </playground-tab-bar>
+        <div style="display: flex;">
+          <div style="flex: 1;">
+            <playground-tab-bar
+              part="tab-bar"
+              .project=${projectId}
+              .editor=${editorId}
+              .editableFileSystem=${this.editableFileSystem}
+            >
+            </playground-tab-bar>
+          </div>
+          <div id="toggleBtnArea">  
+            <code-language-switch code-switch-handler=${this.codeSwitchHanler}/>
+          </div>
+        </div>
 
         <playground-file-editor
           id=${editorId}
@@ -311,6 +319,14 @@ PlaygroundIde.styles = css `
       border-right: var(--playground-border, solid 1px #ddd);
     }
 
+    #toggleBtnArea {
+      height:40px;
+      display: flex;
+      align-items: center;
+      background: var(--playground-tab-bar-background, #515966);
+      padding-right: 6px;
+    }
+
     playground-tab-bar {
       flex-shrink: 0;
     }
@@ -331,8 +347,9 @@ PlaygroundIde.styles = css `
       height: 100%;
       width: 100%;
       border-radius: inherit;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 6px;
     }
 
     slot {
@@ -399,6 +416,9 @@ __decorate([
 __decorate([
     property({ attribute: 'auto-refresh' })
 ], PlaygroundIde.prototype, "autoRefresh", void 0);
+__decorate([
+    property({ type: Function, attribute: 'code-switch-handler' })
+], PlaygroundIde.prototype, "codeSwitchHanler", void 0);
 __decorate([
     query('playground-project')
 ], PlaygroundIde.prototype, "_project", void 0);

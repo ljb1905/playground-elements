@@ -11,6 +11,7 @@ import '@material/mwc-icon-button';
 import '@material/mwc-linear-progress';
 import { PlaygroundConnectedElement } from './playground-connected-element.js';
 import './internal/overlay.js';
+import { CODE_DOWNLOAD, CODE_RESET, CODE_SAVE } from './code-language-preference.js';
 /**
  * An HTML preview component consisting of an iframe and a floating reload
  * button.
@@ -27,7 +28,7 @@ let PlaygroundPreview = class PlaygroundPreview extends PlaygroundConnectedEleme
         /**
          * The string to display in the location bar.
          */
-        this.location = 'Result';
+        this.location = ''; //'Result';
         /**
          * Whether the iframe is currently loading.
          */
@@ -93,6 +94,19 @@ let PlaygroundPreview = class PlaygroundPreview extends PlaygroundConnectedEleme
         /* eslint-disable @typescript-eslint/no-floating-promises */
         (_a = this._project) === null || _a === void 0 ? void 0 : _a.saveDebounced(true);
     }
+    localStorageSave() {
+        window.dispatchEvent(new Event(CODE_SAVE));
+    }
+    download() {
+        /* eslint-disable @typescript-eslint/no-floating-promises */
+        //this._project?.saveDebounced(true);
+        window.dispatchEvent(new Event(CODE_DOWNLOAD));
+    }
+    reset() {
+        /* eslint-disable @typescript-eslint/no-floating-promises */
+        //this._project?.saveDebounced(true);
+        window.dispatchEvent(new Event(CODE_RESET));
+    }
     update(changedProperties) {
         if (changedProperties.has('_project')) {
             const oldProject = changedProperties.get('_project');
@@ -122,26 +136,88 @@ let PlaygroundPreview = class PlaygroundPreview extends PlaygroundConnectedEleme
         return html `
       <div id="toolbar" part="preview-toolbar">
         <span id="location" part="preview-location"> ${this.location}</span>
-        <mwc-icon-button
-          id="reload-button"
-          aria-label="Reload preview"
-          part="preview-reload-button"
-          ?disabled=${!this._indexUrl}
-          @click=${this.forceSave}
-        >
-          <!-- Source: https://material.io/resources/icons/?icon=refresh&style=baseline -->
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentcolor"
-            width="18px"
-            height="18px"
+        <div style="display:flex; justify-content:space-between; margin-right:12px">
+          <mwc-icon-button
+            id="reload-button"
+            aria-label="Reload preview"
+            part="preview-reload-button"
+            ?disabled=${!this._indexUrl}
+            @click=${this.forceSave}
           >
-            <path
-              d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"
-            />
-          </svg>
-        </mwc-icon-button>
+            <!-- Source: https://material.io/resources/icons/?icon=refresh&style=baseline -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512"
+              fill="currentcolor"
+              width="16px"
+              height="16px"
+            >
+              <path
+                d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+              />
+            </svg>
+          </mwc-icon-button>
+          <mwc-icon-button
+            id="reload-button"
+            aria-label="Reload preview"
+            part="preview-reload-button"
+            ?disabled=${!this._indexUrl}
+            @click=${this.localStorageSave}
+          >
+            <!-- Source: https://material.io/resources/icons/?icon=refresh&style=baseline -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              fill="currentcolor"
+              width="16px"
+              height="16px"
+            >
+              <path
+                d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V173.3c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32H64zm0 96c0-17.7 14.3-32 32-32H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V128zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"
+              />
+            </svg>
+          </mwc-icon-button>
+          <mwc-icon-button
+            id="reload-button"
+            aria-label="Reload preview"
+            part="preview-reload-button"
+            ?disabled=${!this._indexUrl}
+            @click=${this.download}
+          >
+            <!-- Source: https://material.io/resources/icons/?icon=refresh&style=baseline -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              fill="currentcolor"
+              width="16px"
+              height="16px"
+            >
+              <path
+                d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"
+              />
+            </svg>
+          </mwc-icon-button>
+          <mwc-icon-button
+            id="reload-button"
+            aria-label="Reload preview"
+            part="preview-reload-button"
+            ?disabled=${!this._indexUrl}
+            @click=${this.reset}
+          >
+            <!-- Source: https://material.io/resources/icons/?icon=refresh&style=baseline -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              fill="currentcolor"
+              width="16px"
+              height="16px"
+            >
+              <path
+                d="M463.5 224H472c13.3 0 24-10.7 24-24V72c0-9.7-5.8-18.5-14.8-22.2s-19.3-1.7-26.2 5.2L413.4 96.6c-87.6-86.5-228.7-86.2-315.8 1c-87.5 87.5-87.5 229.3 0 316.8s229.3 87.5 316.8 0c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0c-62.5 62.5-163.8 62.5-226.3 0s-62.5-163.8 0-226.3c62.2-62.2 162.7-62.5 225.3-1L327 183c-6.9 6.9-8.9 17.2-5.2 26.2s12.5 14.8 22.2 14.8H463.5z"
+              />
+            </svg>
+          </mwc-icon-button>
+        </div>
       </div>
 
       <div id="content" class=${classMap({ error: !!this._error })}>
@@ -231,6 +307,7 @@ PlaygroundPreview.styles = css `
       font-family: sans-serif;
       height: 350px;
       position: relative; /* for the error message overlay */
+      border-top-right-radius: 6px;
     }
 
     #toolbar {
@@ -240,11 +317,13 @@ PlaygroundPreview.styles = css `
       justify-content: space-between;
       border-bottom: var(--playground-border, solid 1px #ddd);
       font-size: 15px;
-      color: var(--playground-preview-toolbar-foreground-color, #444);
-      border-radius: inherit;
+      color: var(--playground-preview-toolbar-foreground-color, white);
+      //border-radius: inherit;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
-      background: var(--playground-preview-toolbar-background, white);
+      background: var(--playground-preview-toolbar-background, #515966);
+      border-top-right-radius: 6px;
+      margin-left:-1px;
     }
 
     #location {
@@ -279,7 +358,7 @@ PlaygroundPreview.styles = css `
       position: absolute;
       top: -6px;
       width: 100%;
-      --mdc-theme-primary: var(--playground-highlight-color, #6200ee);
+      --mdc-theme-primary: var(--playground-highlight-color, #ffa200);
     }
 
     iframe,
@@ -294,6 +373,14 @@ PlaygroundPreview.styles = css `
 
     [hidden] {
       display: none;
+    }
+
+    mwc-icon-button {
+      color: var(--playground-tab-bar-foreground-color);
+    }
+
+    mwc-icon-button:hover {
+      color: #FAA804;
     }
   `;
 __decorate([

@@ -31,8 +31,9 @@ export class PlaygroundTabBar extends PlaygroundConnectedElement {
       display: flex;
       font-size: var(--playground-tab-bar-font-size, 14px);
       height: var(--playground-bar-height, 40px);
-      background: var(--playground-tab-bar-background, #eaeaea);
+      background: var(--playground-tab-bar-background, #515966);
       align-items: center;
+      border-top-left-radius: 6px;
     }
 
     playground-internal-tab-bar {
@@ -45,13 +46,13 @@ export class PlaygroundTabBar extends PlaygroundConnectedElement {
     }
 
     playground-internal-tab {
-      color: var(--playground-tab-bar-foreground-color, #000);
+      color: var(--playground-tab-bar-foreground-color, white);
     }
 
     playground-internal-tab[active] {
       color: var(
         --playground-tab-bar-active-color,
-        var(--playground-highlight-color, #6200ee)
+        var(--playground-highlight-color, #ffa200)
       );
       background: var(--playground-tab-bar-active-background, transparent);
     }

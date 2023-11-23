@@ -101,7 +101,7 @@ PlaygroundInternalTab.styles = css `
       height: 2px;
       background: var(
         --playground-tab-bar-indicator-color,
-        var(--playground-highlight-color, #6200ee)
+        var(--playground-highlight-color, #ffa200)
       );
     }
   `;

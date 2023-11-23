@@ -161,7 +161,7 @@ export const knobs = [
     id: 'highlight',
     label: 'Highlight',
     cssProperty: '--playground-highlight-color',
-    default: '#6200ee',
+    default: '#ffa200',
     section: 'general appearance',
   }),
   color({
@@ -196,14 +196,14 @@ export const knobs = [
     id: 'tabBarBackground',
     label: 'Background',
     cssProperty: '--playground-tab-bar-background',
-    default: '#eaeaea',
+    default: '#515966',
     section: 'tab bar',
   }),
   color({
     id: 'tabBarForeground',
     label: 'Foreground',
     cssProperty: '--playground-tab-bar-foreground-color',
-    default: '#000000',
+    default: 'white',
     section: 'tab bar',
   }),
   slider({
@@ -222,14 +222,14 @@ export const knobs = [
     id: 'previewToolbarBackground',
     label: 'Background',
     cssProperty: '--playground-preview-toolbar-background',
-    default: '#ffffff',
+    default: '515966',
     section: 'preview',
   }),
   color({
     id: 'previewToolbarForeground',
     label: 'Foreground',
     cssProperty: '--playground-preview-toolbar-foreground-color',
-    default: '#444444',
+    default: 'white',
     section: 'preview',
   }),
   slider({

@@ -662,15 +662,16 @@ const expandProjectConfig = async (config, baseUrl, alreadyFetchedFilenames = ne
             filePromises.push((async () => {
                 var _a;
                 const resp = await fetch(new URL(filename, baseUrl).href);
-                let contentType = resp.headers.get('Content-Type');
-                if (filename && filename.split('.').reverse()[0] === 'ts') {
-                    contentType = 'video/mp2t';
-                }
+                // let contentType: string | null = resp.headers.get('Content-Type')
+                // if (filename && filename.split('.').reverse()[0] === 'ts') {
+                //   contentType = 'video/mp2t'
+                // }
                 return {
                     ...info,
                     name: filename,
                     content: await resp.text(),
-                    contentType: (_a = contentType === null || contentType === void 0 ? void 0 : contentType.toLowerCase()) !== null && _a !== void 0 ? _a : 'text/plain',
+                    //contentType: contentType?.toLowerCase() ?? 'text/plain',
+                    contentType: (_a = typeFromFilename(filename)) !== null && _a !== void 0 ? _a : 'text/plain',
                 };
             })());
         }
