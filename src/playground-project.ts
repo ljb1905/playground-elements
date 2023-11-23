@@ -828,6 +828,7 @@ const expandProjectConfig = async (
           // if (filename && filename.split('.').reverse()[0] === 'ts') {
           //   contentType = 'video/mp2t'
           // }
+          
           return {
             ...info,
             name: filename,
