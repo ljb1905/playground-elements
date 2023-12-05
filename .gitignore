@@ -29,6 +29,7 @@
 /*.tgz
 /.wireit
 /.eslintcache
+/.wireit
 
 # /packages/*/node_modules
 # /service-worker
