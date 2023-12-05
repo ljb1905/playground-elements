@@ -438,7 +438,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
             return;
         }
         /* eslint-disable @typescript-eslint/no-floating-promises */
-        workerApi.compileProject((_b = this._files) !== null && _b !== void 0 ? _b : [], { importMap: this._importMap }, proxy((result) => build.onOutput(result)));
+        workerApi.compileProject((_b = this._files) !== null && _b !== void 0 ? _b : [], { importMap: this._importMap, cdnBaseUrl: this.cdnBaseUrl }, proxy((result) => build.onOutput(result)));
         /* eslint-enable @typescript-eslint/no-floating-promises */
         await build.stateChange;
         if (build.state() !== 'done') {
@@ -455,7 +455,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
         // just work with what we have fetched earlier.
         if (!changeData.isRefinement) {
             const workerApi = await this._deferredTypeScriptWorkerApi.promise;
-            const completionInfo = await workerApi.getCompletions(changeData.fileName, changeData.fileContent, tokenUnderCursorAsString, changeData.cursorIndex, { importMap: this._importMap });
+            const completionInfo = await workerApi.getCompletions(changeData.fileName, changeData.fileContent, tokenUnderCursorAsString, changeData.cursorIndex, { importMap: this._importMap, cdnBaseUrl: this.cdnBaseUrl });
             if (completionInfo) {
                 const getCompletionDetailsFunction = this._getCompletionDetails.bind(this);
                 // We pre-generate the getter for each completion item's details, so that
@@ -485,7 +485,7 @@ let PlaygroundProject = class PlaygroundProject extends LitElement {
     }
     async _getCompletionDetails(filename, cursorIndex, completionWord) {
         const workerApi = await this._deferredTypeScriptWorkerApi.promise;
-        const completionItemDetails = await workerApi.getCompletionItemDetails(filename, cursorIndex, { importMap: this._importMap }, completionWord);
+        const completionItemDetails = await workerApi.getCompletionItemDetails(filename, cursorIndex, { importMap: this._importMap, cdnBaseUrl: this.cdnBaseUrl }, completionWord);
         return completionItemDetails;
     }
     /**
@@ -605,6 +605,9 @@ __decorate([
 __decorate([
     property({ attribute: 'auto-refresh' })
 ], PlaygroundProject.prototype, "autoRefresh", void 0);
+__decorate([
+    property({ attribute: 'cdn-baseurl' })
+], PlaygroundProject.prototype, "cdnBaseUrl", void 0);
 __decorate([
     property({ attribute: 'sandbox-scope' })
 ], PlaygroundProject.prototype, "sandboxScope", void 0);

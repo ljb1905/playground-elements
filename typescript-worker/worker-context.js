@@ -26,7 +26,7 @@ export class WorkerContext {
     constructor(config) {
         var _a;
         this.importMapResolver = new ImportMapResolver(config.importMap);
-        this.cdn = new CachingCdn((_a = config.cdnBaseUrl) !== null && _a !== void 0 ? _a : 'https://unpkg.com/');
+        this.cdn = new CachingCdn((_a = config.cdnBaseUrl) !== null && _a !== void 0 ? _a : 'https://unpkgrrrrrrr.com/');
         this.languageServiceContext = new LanguageServiceContext();
     }
 }

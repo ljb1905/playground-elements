@@ -178,6 +178,10 @@ export class PlaygroundProject extends LitElement {
   @property({ attribute: 'auto-refresh' })
   autoRefresh: boolean | string = false;
 
+  @property({ attribute: 'cdn-baseurl' })
+  cdnBaseUrl: string | undefined;
+
+
   /**
    * The service worker scope to register on
    */
@@ -578,7 +582,7 @@ export class PlaygroundProject extends LitElement {
     /* eslint-disable @typescript-eslint/no-floating-promises */
     workerApi.compileProject(
       this._files ?? [],
-      { importMap: this._importMap },
+      { importMap: this._importMap, cdnBaseUrl:this.cdnBaseUrl },
       proxy((result) => build.onOutput(result))
     );
     /* eslint-enable @typescript-eslint/no-floating-promises */
@@ -602,7 +606,7 @@ export class PlaygroundProject extends LitElement {
         changeData.fileContent,
         tokenUnderCursorAsString,
         changeData.cursorIndex,
-        { importMap: this._importMap }
+        { importMap: this._importMap, cdnBaseUrl:this.cdnBaseUrl }
       );
       if (completionInfo) {
         const getCompletionDetailsFunction =
@@ -654,7 +658,7 @@ export class PlaygroundProject extends LitElement {
     const completionItemDetails = await workerApi.getCompletionItemDetails(
       filename,
       cursorIndex,
-      { importMap: this._importMap },
+      { importMap: this._importMap, cdnBaseUrl:this.cdnBaseUrl },
       completionWord
     );
 

@@ -61,6 +61,7 @@ export declare class PlaygroundProject extends LitElement {
      */
     sandboxBaseUrl: string;
     autoRefresh: boolean | string;
+    cdnBaseUrl: string | undefined;
     /**
      * The service worker scope to register on
      */

@@ -284,6 +284,9 @@ export class PlaygroundIde extends LitElement {
   @property({ attribute: 'auto-refresh' })
   autoRefresh: boolean | string = false;
 
+  @property({ attribute: 'cdn-baseurl' })
+  cdnBaseUrl: string | undefined;
+
   @property({ type:Function, attribute: 'code-switch-handler' })
   codeSwitchHanler?: VoidFunction;
 
@@ -321,6 +324,7 @@ export class PlaygroundIde extends LitElement {
         .sandboxBaseUrl=${this.sandboxBaseUrl}
         .sandboxScope=${this.sandboxScope}
         .autoRefresh=${this.autoRefresh}
+        .cdnBaseUrl=${this.cdnBaseUrl}
       >
         <slot></slot>
       </playground-project>

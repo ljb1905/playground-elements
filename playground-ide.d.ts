@@ -134,6 +134,7 @@ export declare class PlaygroundIde extends LitElement {
      */
     noCompletions: boolean;
     autoRefresh: boolean | string;
+    cdnBaseUrl: string | undefined;
     codeSwitchHanler?: VoidFunction;
     /**
      * Indicates whether the user has modified, added, or removed any project

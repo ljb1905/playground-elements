@@ -197,6 +197,7 @@ let PlaygroundIde = class PlaygroundIde extends LitElement {
         .sandboxBaseUrl=${this.sandboxBaseUrl}
         .sandboxScope=${this.sandboxScope}
         .autoRefresh=${this.autoRefresh}
+        .cdnBaseUrl=${this.cdnBaseUrl}
       >
         <slot></slot>
       </playground-project>
@@ -416,6 +417,9 @@ __decorate([
 __decorate([
     property({ attribute: 'auto-refresh' })
 ], PlaygroundIde.prototype, "autoRefresh", void 0);
+__decorate([
+    property({ attribute: 'cdn-baseurl' })
+], PlaygroundIde.prototype, "cdnBaseUrl", void 0);
 __decorate([
     property({ type: Function, attribute: 'code-switch-handler' })
 ], PlaygroundIde.prototype, "codeSwitchHanler", void 0);
